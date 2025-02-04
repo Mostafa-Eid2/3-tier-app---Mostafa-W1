@@ -1,0 +1,32 @@
+# Local Terraform state
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
+
+# Terraform crash log
+crash.log
+
+# Ignore Terraform-related directories
+.terraform/
+.terraform.lock.hcl
+
+# Ignore personal settings or overrides
+terraform.tfvars
+*.auto.tfvars
+
+# Ignore SSH keys (Important for security)
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# Ignore sensitive files
+*.secrets
+*.env
+
+# Ignore log files and temporary files
+*.log
+*.bak
+.DS_Store
+Thumbs.db
