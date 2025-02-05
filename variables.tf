@@ -141,21 +141,6 @@ variable "frontend_autoscaling_desired_capacity" {
   type        = number
 }
 
-variable "key_name" {
-  description = "The name of the SSH key pair"
-  type        = string
-}
-
-variable "frontend_ami_id" {
-  description = "The AMI ID for frontend instances"
-  type        = string
-}
-
-variable "backend_ami_id" {
-  description = "The AMI ID for backend instances"
-  type        = string
-}
-
 variable "frontend_unhealthy_threshold" {
   description = "The threshold for marking an unhealthy frontend instance"
   type        = number
@@ -168,7 +153,7 @@ variable "db_encryption" {
 
 variable "bastion_security_group_ingress" {
   description = "Security group rules for the Bastion Host"
-  type        = list(object({
+  type = list(object({
     from_port   = number
     to_port     = number
     protocol    = string
@@ -180,3 +165,54 @@ variable "frontend_healthy_threshold" {
   description = "Healthy threshold for frontend ALB health check"
   type        = number
 }
+
+variable "db_backup_retention"{
+  description = "value of DB backup retention"
+  type=number
+}
+
+variable "frontend_health_check_path"{
+  description="value of frontend_health_check_path"
+  type = string
+}
+
+variable "frontend_health_check_protocol"{
+  description="value of frontend_health_check_protocol"
+  type = string
+}
+
+variable "backend_autoscaling_desired_capacity" {
+  description = "backend_autoscaling_desired_capacity"
+  type = number
+}
+
+variable "db_performance_insights" {
+  description = "db_performance_insights"
+  type = bool
+}
+
+variable "backend_autoscaling_min_size" {
+  description = "backend_autoscaling_min_size"
+  type = number
+}
+
+variable "backend_autoscaling_max_size" {
+  description = "backend_autoscaling_max_size"
+  type = number
+}
+
+variable "frontend_health_check_timeout" {
+  description = "frontend_health_check_timeout"
+  type = number
+}
+
+variable "bastion_key_name" {
+  description = "bastion_key_name"
+  type = string
+}
+
+variable "db_port" {
+  description = "db_port"
+  type = number
+}
+

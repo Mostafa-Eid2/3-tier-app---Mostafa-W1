@@ -6,15 +6,9 @@ resource "tls_private_key" "rsa" {
 
 # Create AWS Key Pair using the generated public key
 resource "aws_key_pair" "generated_key" {
-  key_name   = var.key_name
+  key_name   = "my_ssh_key"
   public_key = tls_private_key.rsa.public_key_openssh
 
-  tags = merge(
-    var.tags,
-    {
-      Name = "Key-Pair-${var.key_name}"
-    }
-  )
 }
 
 # Save Private Key Locally

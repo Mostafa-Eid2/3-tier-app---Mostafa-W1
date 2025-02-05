@@ -9,9 +9,10 @@ variable "instance_type" {
 }
 
 variable "ami_id" {
-  description = "The AMI ID for backend instances"
+  description = "The ID Of The AMI"
   type        = string
 }
+
 
 variable "subnet_ids" {
   description = "List of subnet IDs where backend instances will be launched"

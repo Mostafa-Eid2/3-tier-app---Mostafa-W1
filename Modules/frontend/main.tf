@@ -24,10 +24,10 @@ resource "aws_launch_template" "frontend" {
 
 # Auto Scaling Group
 resource "aws_autoscaling_group" "frontend" {
-  desired_capacity     = var.autoscaling_desired_capacity
-  max_size             = var.autoscaling_max_size
-  min_size             = var.autoscaling_min_size
-  vpc_zone_identifier  = var.subnet_ids
+  desired_capacity    = var.autoscaling_desired_capacity
+  max_size            = var.autoscaling_max_size
+  min_size            = var.autoscaling_min_size
+  vpc_zone_identifier = var.subnet_ids
 
   launch_template {
     id      = aws_launch_template.frontend.id

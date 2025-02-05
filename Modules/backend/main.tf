@@ -24,10 +24,10 @@ resource "aws_launch_template" "backend" {
 
 # Auto Scaling Group
 resource "aws_autoscaling_group" "backend" {
-  desired_capacity     = var.instance_count
-  max_size             = var.instance_count + 1
-  min_size             = var.instance_count
-  vpc_zone_identifier  = var.subnet_ids
+  desired_capacity    = var.instance_count
+  max_size            = var.instance_count + 1
+  min_size            = var.instance_count
+  vpc_zone_identifier = var.subnet_ids
   launch_template {
     id      = aws_launch_template.backend.id
     version = "$Latest"

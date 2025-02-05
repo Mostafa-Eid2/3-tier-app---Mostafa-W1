@@ -10,9 +10,10 @@ variable "instance_type" {
 }
 
 variable "ami_id" {
-  description = "The AMI ID for frontend instances"
+  description = "The ID Of The AMI"
   type        = string
 }
+
 
 # Auto Scaling Configuration
 variable "autoscaling_min_size" {
