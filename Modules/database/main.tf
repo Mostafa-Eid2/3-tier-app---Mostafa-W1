@@ -1,7 +1,7 @@
 # RDS Subnet Group
 resource "aws_db_subnet_group" "database" {
   name       = "database-subnet-group"
-  subnet_ids = var.subnet_ids
+  subnet_ids = [module.vpc.private_subnet_ids]
 
   tags = merge(
     var.tags,

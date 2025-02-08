@@ -1,5 +1,6 @@
 data "aws_ami" "ubuntu" {
   most_recent = true
+  owners      = ["099720109477"]  # Amazon Official AMI Owner ID
 
   filter {
     name   = "name"
@@ -10,11 +11,4 @@ data "aws_ami" "ubuntu" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
-  owners = ["099720109477"]
 }

@@ -215,4 +215,3 @@ variable "db_port" {
   description = "db_port"
   type = number
 }
-

@@ -95,3 +95,8 @@ variable "key_name" {
   description = "The name of the SSH key pair"
   type        = string
 }
+
+variable "public_subnets" {
+  description = "List of public subnet IDs where the ALB will be deployed"
+  type        = list(string)
+}

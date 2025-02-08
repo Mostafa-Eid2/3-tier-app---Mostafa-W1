@@ -51,7 +51,7 @@ resource "aws_route_table_association" "private" {
 
 # Bastion Host
 resource "aws_instance" "bastion" {
-  ami                    = "ami-12345678" # Replace with a valid AMI ID
+  ami                    = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
   instance_type          = "t3.micro"
   key_name               = var.key_name
   subnet_id              = element(var.public_subnet_ids, 0)

@@ -47,6 +47,7 @@ module "frontend" {
   instance_count               = var.frontend_instance_count
   instance_type                = var.frontend_instance_type
   subnet_ids                   = module.vpc.public_subnet_ids
+  public_subnets               = var.public_subnets
   security_group_id            = module.security_groups.frontend_security_group_id
   vpc_id                       = module.vpc.vpc_id
   key_name                     = module.key.key_name

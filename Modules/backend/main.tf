@@ -3,7 +3,6 @@ resource "aws_launch_template" "backend" {
   name          = "backend-launch-template"
   image_id      = var.ami_id
   instance_type = var.instance_type
-  key_name      = "my-ssh-key" # Replace with your key name
 
   network_interfaces {
     associate_public_ip_address = false

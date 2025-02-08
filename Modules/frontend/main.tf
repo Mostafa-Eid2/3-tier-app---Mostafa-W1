@@ -3,7 +3,7 @@ resource "aws_launch_template" "frontend" {
   name          = "frontend-launch-template"
   image_id      = var.ami_id
   instance_type = var.instance_type
-  key_name      = var.key_name # Replace with your key name
+  key_name      = var.key_name  # <-- Use the declared variable
 
   network_interfaces {
     associate_public_ip_address = true
@@ -12,7 +12,6 @@ resource "aws_launch_template" "frontend" {
 
   tag_specifications {
     resource_type = "instance"
-
     tags = merge(
       var.tags,
       {
@@ -21,6 +20,7 @@ resource "aws_launch_template" "frontend" {
     )
   }
 }
+
 
 # Auto Scaling Group
 resource "aws_autoscaling_group" "frontend" {
@@ -49,8 +49,8 @@ resource "aws_lb" "frontend" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.security_group_id]
-  subnets            = var.subnet_ids
-
+  # subnets = [var.subnet_ids[0], var.subnet_ids[1]]
+  subnets            = [module.vpc.public_subnet_ids]  # <-- Use the declared variable
   enable_deletion_protection = false
 
   tags = merge(
